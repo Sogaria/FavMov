@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homepage</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+</head>
+
+<body class="bg-slate-900">
+    <header>
+        {% include "fav_mov/partials/header.html" %}
+        {% block header %}
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block mainContent %}
+        {% endblock %}
+    </main>
+    <script src="{% static 'fav_mov/js/main.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<header class="flex items-center justify-start sticky bg-indigo-800 h-16">
+
+    {% load static %}
+    <!-- Logo -->
+    <div class="flex items-center justify-center h-32">
+        <img src="{% static "fav_mov/images/Blue_Play_Button.png" %}" class="w-20 h-30" alt="Logo">
+    </div>
+
+    <!-- Title -->
+    <div class="flex items-center justify-center">
+        <h1 class="text-white font-bold text-3xl">FavMovies</h1>
+    </div>
+
+    <!-- Search Bar -> Create partial here for inputs and their label -->
+    <div class="flex items-center justify-center ml-4">
+        {% include "fav_mov/partials/input.html" with placeholder="Search..." %}
+    </div>
+    
+    <!-- Buttons -->
+    <div class="flex items-center justify-center ml-auto mr-5">
+        <div class="flex items-center justify-center mr-2">
+            {% include "fav_mov/partials/button.html" with button_text="Submit Movie" %}
+        </div>
+
+        <div class="flex items-center justify-center mr-2">
+            {% include "fav_mov/partials/button.html" with button_text="Settings" %}
+        </div>
+
+        <div class="flex items-center justify-center mr-2">
+            {% include "fav_mov/partials/button.html" with button_text="Top Rated"%}
+        </div>
+
+        <div class="flex items-center justify-center mr-2">
+            {% include "fav_mov/partials/button.html" with button_text="Profile"%}
+        </div>
+    </div>
+</header>
