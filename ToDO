@@ -1,3 +1,9 @@
+Fix venv issues swapping between laptop and pc
+-> python -m venv env recreate venv
+-> env/Scripts/activate
+-> pip install -r requirements.txt
+
+
 Implement functionality to click on a movie box at homepage. 
 -> box put in foreground and middle of screen, option to edit field values of it and save changes to databank.
 
