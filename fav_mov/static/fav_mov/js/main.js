@@ -29,3 +29,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+//toggle visibility of modal (movie_form)
+function toggleModal() {
+    const modal = document.getElementById("modal")
+
+    if (modal) {
+        modal.classList.toggle("hidden")
+    }
+
+    else {
+        console.warn("Modal element not loaded in DOM yet.")
+    }
+}
+
+//fade messages out
+setTimeout(() => {
+    const msg = document.getElementById('flash-message');
+    if (!msg) return;
+
+    msg.style.transition = 'opacity 0.5s ease-in-out';
+    msg.style.opacity = '0';
+
+    setTimeout(() => {
+        msg.remove();
+    }, 500);
+}, 5000);

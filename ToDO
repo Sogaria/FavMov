@@ -1,0 +1,12 @@
+Implement functionality to click on a movie box at homepage. 
+-> box put in foreground and middle of screen, option to edit field values of it and save changes to databank.
+
+implement filter button -> filter genre, title etc.
+
+implement functionality for search bar to filter easier by title etc.
+
+add profile option with login to store movies to own watchlist
+
+add top rated movies to display top 50 imbd movies sorted
+
+add settings functionality with dark mode?
