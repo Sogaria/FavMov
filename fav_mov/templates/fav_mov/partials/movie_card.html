@@ -1,22 +1,24 @@
 <!-- Display movie in a box -->
+<div onclick="openMovieModal({{ movie.id }})" class="cursor-pointer">
     <div class="bg-indigo-500 shadow-lg shadow-indigo-500/50 border-2 border-black p-4 inline-block">
-        <h1 class="text-amber-100">{{ movie.title }}</h3>
-        <p>{{ movie.imbd }}</p>
+        <h1 class="text-amber-100">{{ movie.title }}</h1>
+        <p>{{ movie.imdb }}</p>
         <p>{{ movie.date }}</p>
         <p>{{ movie.description }}</p>
         <p>{{ movie.genre }}</p>
         <p>{{ movie.duration_min }}</p>
         
         <!-- Watched checkbox -->
-         <p>
+        <p>
             {% if movie.watched %}
                 <input type="checkbox" checked disabled> Watched
             {% else %}
                 <input type="checkbox" disabled> Not Watched
             {% endif %}
-         </p>
-
+        </p>
     </div>
+</div>
+
 
 
     <!--fields = ['title', 'watched', 'imdb', 'date', 'description', 'genre', 'duration_min', 'image']-->

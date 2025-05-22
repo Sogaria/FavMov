@@ -19,7 +19,7 @@
     <!-- Buttons -->
     <div class="flex items-center justify-center ml-auto mr-5">
         <div class="flex items-center justify-center mr-2">
-            {% include "fav_mov/partials/button.html" with button_text="Submit Movie" onclick="toggleModal()" %}
+            {% include "fav_mov/partials/button.html" with button_text="Submit Movie" onclick="toggleModal(); document.getElementById('delete-button').classList.add('hidden');" %}
         </div>
 
         <div class="flex items-center justify-center mr-2">

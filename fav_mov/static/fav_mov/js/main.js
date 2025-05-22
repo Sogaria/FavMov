@@ -43,6 +43,31 @@ function toggleModal() {
     }
 }
 
+//toggle modal when clicking movie box through movieID -> AJAX Call
+function openMovieModal(movieId) {
+    fetch(`/get-movie-data/${movieId}/`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('id_movie_id').value = movieId;
+            document.getElementById('id_title').value = data.title;
+            document.getElementById('id_watched').checked = data.watched;
+            document.getElementById('id_imdb').value = data.imdb;
+            document.getElementById('id_date').value = data.date;
+            document.getElementById('id_description').value = data.description;
+            document.getElementById('id_genre').value = data.genre;
+            document.getElementById('id_duration_min').value = data.duration_min;
+            // Show delete button because we click on current movie
+            document.getElementById('delete-button').classList.remove('hidden');
+
+            // TODO: Set image preview or handle image logic if needed
+            toggleModal();
+        })
+        .catch(error => {
+            console.error("Error fetching movie data:", error);
+        });
+}
+
+
 //fade messages out
 setTimeout(() => {
     const msg = document.getElementById('flash-message');
