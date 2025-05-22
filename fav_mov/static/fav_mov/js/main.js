@@ -119,3 +119,10 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+
+//Remove image with button in movie_input_form
+function removeImage() {
+    const old_img = document.getElementById('id_image');
+    const new_input = old_img.cloneNode(true); // clone element but not state (img)
+    old_img.parentNode.replaceChild(new_input, old_img)
+}
