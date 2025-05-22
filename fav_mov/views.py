@@ -46,3 +46,11 @@ def get_movie_data(request, movie_id):
         'duration_min': movie.duration_min,
         'image': movie.image.url if movie.image else '',
     })
+
+def delete_movie(request, movie_id):
+    if request.method == "POST":
+        movie = get_object_or_404(Movie, id=movie_id)
+        movie.delete()
+        messages.success(request, "Movie successfully deleted from the database.")
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False}, status=400)

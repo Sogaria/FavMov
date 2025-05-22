@@ -1,0 +1,16 @@
+Fix venv issues swapping between laptop and pc
+    -> python - m venv env recreate venv
+        -> env / Scripts / activate
+        -> pip install - r requirements.txt
+
+fix adding image to movie, make sure to be able to remove current selected image aswell
+
+implement filter button -> filter genre, title etc.
+
+implement functionality for search bar to filter easier by title etc.
+
+add profile option with login to store movies to own watchlist
+
+add top rated movies to display top 50 imbd movies sorted
+
+add settings functionality with dark mode ?

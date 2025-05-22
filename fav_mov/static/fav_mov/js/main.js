@@ -56,8 +56,10 @@ function openMovieModal(movieId) {
             document.getElementById('id_description').value = data.description;
             document.getElementById('id_genre').value = data.genre;
             document.getElementById('id_duration_min').value = data.duration_min;
+            const deleteBtn = document.getElementById('delete-button');
             // Show delete button because we click on current movie
             document.getElementById('delete-button').classList.remove('hidden');
+            deleteBtn.onclick = function () { deleteMovie(movieId); }; // asign movie id to delete button so POST request gives correct id
 
             // TODO: Set image preview or handle image logic if needed
             toggleModal();
@@ -65,6 +67,26 @@ function openMovieModal(movieId) {
         .catch(error => {
             console.error("Error fetching movie data:", error);
         });
+}
+
+// send request to delete a movie from databank
+function deleteMovie(movieId) {
+    if (!confirm("Are you sure you want to delete this movie?")) return;
+
+    fetch(`delete-movie/${movieId}/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'), //send csrf token
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.reload(); //force full reload of window to enable message display
+            }
+        })
+        .catch(error => console.error('Error:', error));
 }
 
 
@@ -80,3 +102,20 @@ setTimeout(() => {
         msg.remove();
     }, 500);
 }, 5000);
+
+//implement getCookie
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
