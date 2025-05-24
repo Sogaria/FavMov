@@ -6,7 +6,7 @@
   <div class="absolute inset-0 backdrop-blur-sm"></div>
 
   <!-- Modal content -->
-  <div class="relative bg-slate-600 border-slate-200 border-2 p-6 rounded shadow-xl z-10 w-full max-w-md my-auto">
+  <div class="relative bg-slate-800/80 backdrop-blur-md border border-slate-600 p-8 rounded-2xl shadow-2xl z-10 max-w-lg w-full text-white">
     <h2 class="text-xl text-white font-bold mb-4">Add New Movie</h2>
     <form method="post" action="" enctype="multipart/form-data">
 
@@ -16,49 +16,68 @@
 
       <!-- Title -->
       <label class="block mb-2 font-semibold text-white" for="id_title">Title</label>
-      {{ form.title|add_class:"w-full p-2 border rounded mb-4" }}
+      {{ form.title|add_class:"w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-600 mb-4" }}
 
-      <!-- Watched checkbox -->
+      <!-- Watched checkbox
       <label class="inline-flex items-center mb-4">
         {{ form.watched }}
         <span class="ml-2 text-white">Watched</span>
-      </label>
+      </label>-->
 
       <!-- IMDb URL -->
       <label class="block mb-2 font-semibold text-white" for="id_imdb">IMDb URL</label>
-      {{ form.imdb|add_class:"w-full p-2 border text-white rounded mb-4" }}
+      {{ form.imdb|add_class:"w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-600 mb-4" }}
 
       <!-- Date -->
       <label class="block mb-2 font-semibold text-white" for="id_date">Release Date</label>
-      {{ form.date|add_class:"w-full p-2 border text-white rounded mb-4" }}
+      {{ form.date|add_class:"w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-600 mb-4" }}
 
       <!-- Description -->
       <label class="block mb-2 font-semibold text-white" for="id_description">Description</label>
-      {{ form.description|add_class:"w-full p-2 border rounded h-32 mb-4" }}
+      {{ form.description|add_class:"w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-600 mb-4" }}
 
       <!-- Genre -->
       <label class="block mb-2 font-semibold text-white" for="id_genre">Genre</label>
-      {{ form.genre|add_class:"w-full p-2 border rounded mb-4" }}
+      {{ form.genre|add_class:"w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-600 mb-4" }}
 
       <!-- Duration -->
       <label class="block mb-2 font-semibold text-white" for="id_duration_min">Duration (minutes)</label>
-      {{ form.duration_min|add_class:"w-full p-2 border rounded mb-4" }}
+      {{ form.duration_min|add_class:"w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-600 mb-4" }}
 
       <!-- Image field -->
       <div class="mb-4">
         <label class="block mb-2 font-semibold text-white" for="id_image">Image</label>
-          {{ form.image|add_class:"w-full text-white px-2" }}
-        <button type="button" onclick="removeImage()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Remove</button>
+        <div class="flex gap-4 items-center">
+            {{ form.image|add_class:"w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-600 mb-4" }}
+            <button type="button" onclick="removeImage()" class="px-4 py-2 -mt-4 rounded bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 text-white font-semibold shadow-md hover:from-sky-500 hover:via-sky-600 hover:to-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400">Remove</button>
+        </div>
       </div>
 
       <!-- Buttons section -->
       <div class="flex justify-between space-x-2">
         <div>
-          <button type="button" class="px-4 bg-red-600 py-2 text-amber-50 rounded hidden" id="delete-button">Delete</button>
+          <button 
+            type="button" 
+            class="px-4 py-2 rounded text-amber-50 bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-600 transition-shadow shadow-sm"
+            id="delete-button"
+          >
+            Delete
+          </button>
         </div>
-        <div>
-          <button type="button" onclick="toggleModal()" class="px-4 py-2 bg-gray-300 rounded">Cancel</button>
-          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Save</button>
+        <div class="flex space-x-2">
+          <button 
+            type="button" 
+            onclick="toggleModal()" 
+            class="px-4 py-2 rounded bg-gray-700 text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 transition-colors"
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            class="px-4 py-2 rounded bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 text-white font-semibold shadow-md hover:from-sky-500 hover:via-sky-600 hover:to-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all"
+          >
+            Save
+          </button>
         </div>
       </div>
     </form>

@@ -1,15 +1,12 @@
-<header class="flex items-center justify-start sticky bg-indigo-800 h-16">
+<header class="sticky top-0 z-40 flex items-center justify-between px-6 h-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-slate-900 shadow-md">
 
     {% load static %}
-    <!-- Logo -->
-    <div class="flex items-center justify-center h-32">
-        <img src="{% static "fav_mov/images/Blue_Play_Button.png" %}" class="w-20 h-30" alt="Logo">
+    <!-- Logo & Title -->
+    <div class="flex items-center space-x-4">
+        <img src="{% static 'fav_mov/images/Blue_Play_Button.png' %}" class="w-24 h-36" alt="Logo">
+        <h1 class="text-white font-bold text-2xl tracking-wide">FavMovies</h1>
     </div>
-
-    <!-- Title -->
-    <div class="flex items-center justify-center">
-        <h1 class="text-white font-bold text-3xl">FavMovies</h1>
-    </div>
+    
 
     <!-- Search Bar -> Create partial here for inputs and their label -->
     <div class="flex items-center justify-center ml-4">
