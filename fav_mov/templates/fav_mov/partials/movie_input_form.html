@@ -1,13 +1,13 @@
 {% load widget_tweaks %}
 
-<div id="modal" class="fixed inset-0 flex justify-center items-center hidden z-50">
+<div id="modal" class="fixed inset-0 items-start flex justify-center overflow-auto hidden z-50 p-4">
 
   <!-- Background blur layer -->
   <div class="absolute inset-0 backdrop-blur-sm"></div>
 
   <!-- Modal content -->
-  <div class="relative bg-white p-6 rounded shadow-xl w-full max-w-md z-10">
-    <h2 class="text-xl font-bold mb-4">Add New Movie</h2>
+  <div class="relative bg-slate-600 border-slate-200 border-2 p-6 rounded shadow-xl z-10 w-full max-w-md my-auto">
+    <h2 class="text-xl text-white font-bold mb-4">Add New Movie</h2>
     <form method="post" action="" enctype="multipart/form-data">
 
       {% csrf_token %}
@@ -15,48 +15,47 @@
       <input type="hidden" name="movie_id" id="id_movie_id">
 
       <!-- Title -->
-      <label class="block mb-2 font-semibold" for="id_title">Title</label>
+      <label class="block mb-2 font-semibold text-white" for="id_title">Title</label>
       {{ form.title|add_class:"w-full p-2 border rounded mb-4" }}
 
       <!-- Watched checkbox -->
       <label class="inline-flex items-center mb-4">
         {{ form.watched }}
-        <span class="ml-2">Watched</span>
+        <span class="ml-2 text-white">Watched</span>
       </label>
 
       <!-- IMDb URL -->
-      <label class="block mb-2 font-semibold" for="id_imdb">IMDb URL</label>
-      {{ form.imdb|add_class:"w-full p-2 border rounded mb-4" }}
+      <label class="block mb-2 font-semibold text-white" for="id_imdb">IMDb URL</label>
+      {{ form.imdb|add_class:"w-full p-2 border text-white rounded mb-4" }}
 
       <!-- Date -->
-      <label class="block mb-2 font-semibold" for="id_date">Release Date</label>
-      {{ form.date|add_class:"w-full p-2 border rounded mb-4" }}
+      <label class="block mb-2 font-semibold text-white" for="id_date">Release Date</label>
+      {{ form.date|add_class:"w-full p-2 border text-white rounded mb-4" }}
 
       <!-- Description -->
-      <label class="block mb-2 font-semibold" for="id_description">Description</label>
-      {{ form.description|add_class:"w-full p-2 border rounded mb-4" }}
+      <label class="block mb-2 font-semibold text-white" for="id_description">Description</label>
+      {{ form.description|add_class:"w-full p-2 border rounded h-32 mb-4" }}
 
       <!-- Genre -->
-      <label class="block mb-2 font-semibold" for="id_genre">Genre</label>
+      <label class="block mb-2 font-semibold text-white" for="id_genre">Genre</label>
       {{ form.genre|add_class:"w-full p-2 border rounded mb-4" }}
 
       <!-- Duration -->
-      <label class="block mb-2 font-semibold" for="id_duration_min">Duration (minutes)</label>
+      <label class="block mb-2 font-semibold text-white" for="id_duration_min">Duration (minutes)</label>
       {{ form.duration_min|add_class:"w-full p-2 border rounded mb-4" }}
 
-      <!-- Image -->
-      <div class="flex justify-between">
-        <label class="block mb-2 font-semibold" id="id_image" for="id_image">Image</label>
-        {{ form.image|add_class:"w-full mb-4" }}
-        <button type="button" onclick="removeImage()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Remove</button>
+      <!-- Image field -->
+      <div class="mb-4">
+        <label class="block mb-2 font-semibold text-white" for="id_image">Image</label>
+          {{ form.image|add_class:"w-full text-white px-2" }}
+        <button type="button" onclick="removeImage()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Remove</button>
       </div>
 
-      <div class="flex justify-between mt-4 space-x-2">
-        <!-- Left Button -->
+      <!-- Buttons section -->
+      <div class="flex justify-between space-x-2">
         <div>
-          <button type="button" class="px-4 py-2 bg-red-600 text-amber-50 rounded hidden" id="delete-button">Delete</button>
+          <button type="button" class="px-4 bg-red-600 py-2 text-amber-50 rounded hidden" id="delete-button">Delete</button>
         </div>
-        <!-- Right buttons -->
         <div>
           <button type="button" onclick="toggleModal()" class="px-4 py-2 bg-gray-300 rounded">Cancel</button>
           <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Save</button>
