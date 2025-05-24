@@ -50,7 +50,6 @@ function openMovieModal(movieId) {
         .then(data => {
             document.getElementById('id_movie_id').value = movieId;
             document.getElementById('id_title').value = data.title;
-            document.getElementById('id_watched').checked = data.watched;
             document.getElementById('id_imdb').value = data.imdb;
             document.getElementById('id_date').value = data.date;
             document.getElementById('id_description').value = data.description;

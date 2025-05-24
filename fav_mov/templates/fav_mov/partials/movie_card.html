@@ -1,7 +1,7 @@
 <!-- Display movie in a box -->
 <div onclick="openMovieModal({{ movie.id }})" class="cursor-pointer">
-    <div class="bg-indigo-500 shadow-lg shadow-indigo-500/50 border-2 border-black p-4 inline-block">
-        <h1 class="text-amber-100">{{ movie.title }}</h1>
+    <div class="bg-gradient-to-r from bg-indigo-500 to-purple-600 h-full w-50 rounded-2xl shadow-lg shadow-indigo-500/50 border-2 border-black p-4 inline-block">
+        <h1 class="text-amber-100 font-extrabold">{{ movie.title }}</h1>
         <p>{{ movie.imdb }}</p>
         <p>{{ movie.date }}</p>
         <p>{{ movie.description }}</p>

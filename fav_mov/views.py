@@ -11,8 +11,11 @@ def homepage(request):
     if request.method == 'POST':
         movie_id = request.POST.get('movie_id')
         if movie_id:
-            movie = get_object_or_404(Movie, id=movie_id)
-            form = MovieForm(request.POST, request.FILES, instance=movie)
+            try:
+                movie = Movie.objects.get(id=movie_id)
+                form = MovieForm(request.POST, request.FILES, instance=movie)
+            except Movie.DoesNotExist:
+                form = MovieForm(request.POST, request.FILES) #prevent crash when reusing same movie id after deleting
         else:
             form = MovieForm(request.POST, request.FILES)
 
